@@ -10,6 +10,8 @@ function start() { // Inicio da função start()
     //Principais variáveis do jogo
 	
 	var jogo = {}
+    var velocidade=5;
+    var posicaoY = parseInt(Math.random() * 334);
 	var TECLA = {
         T: 84,
         G: 71,
@@ -37,6 +39,10 @@ function start() { // Inicio da função start()
 	
 	movefundo();
     movejogador();
+    moveinimigo1();
+    moveinimigo2();
+    moveamigo();
+
 	
 	} // Fim da função loop()
     
@@ -80,5 +86,43 @@ function start() { // Inicio da função start()
             }
         
             } // fim da função movejogador()
+
+            function moveinimigo1() {
+
+                posicaoX = parseInt($("#inimigo1").css("left"));
+                $("#inimigo1").css("left",posicaoX-velocidade);
+                $("#inimigo1").css("top",posicaoY);
+                    
+                    if (posicaoX<=0) {
+                    posicaoY = parseInt(Math.random() * 334);
+                    $("#inimigo1").css("left",694);
+                    $("#inimigo1").css("top",posicaoY);
+                        
+                    }
+            } //Fim da função moveinimigo1()
+
+            function moveinimigo2() {
+                posicaoX = parseInt($("#inimigo2").css("left"));
+            $("#inimigo2").css("left",posicaoX-3);
+                        
+                if (posicaoX<=0) {
+                    
+                $("#inimigo2").css("left",775);
+                            
+                }
+        } // Fim da função moveinimigo2()
+
+        function moveamigo() {
+	
+            posicaoX = parseInt($("#amigo").css("left"));
+            $("#amigo").css("left",posicaoX+1);
+                        
+                if (posicaoX>906) {
+                    
+                $("#amigo").css("left",0);
+                            
+                }
+        
+        } // fim da função moveamigo()
 
 } // Fim da função start
