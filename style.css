@@ -265,3 +265,7 @@ h3 {
 	padding:10px;
 
 }
+
+#reinicia:hover {
+	cursor: pointer;
+}
